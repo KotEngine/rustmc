@@ -1,0 +1,9 @@
+[package]
+name        = "rustmc"
+version     = "0.0.1"
+edition     = "2021"
+description = "Minecraft server status library for Java, Bedrock and Query protocols"
+license     = "Apache-2.0"
+repository  = "https://github.com/KotEngine/rustmc"
+keywords    = ["minecraft", "mcstatus", "bedrock", "java", "server-status"]
+categories  = ["network-programming", "game-development"]

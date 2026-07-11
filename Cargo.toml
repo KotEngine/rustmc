@@ -1,0 +1,46 @@
+[package]
+name        = "rustmc"
+version     = "0.1.0"
+edition     = "2021"
+description = "Minecraft server status library (Java + Bedrock + Query + Legacy)"
+license     = "Apache-2.0"
+repository  = "https://github.com/KotEngine/rustmc"
+keywords    = ["minecraft", "mcstatus", "bedrock", "java", "server-status"]
+categories  = ["network-programming", "game-development"]
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
+
+[dependencies]
+tokio       = { version = "1", features = ["net", "time", "rt-multi-thread", "macros"], optional = true }
+serde       = { version = "1", features = ["derive"] }
+serde_json  = "1"
+thiserror   = "1"
+hickory-resolver = { version = "0.24", optional = true }
+dashmap     = { version = "6", optional = true }
+futures     = { version = "0.3", optional = true }
+base64      = "0.22"
+tracing     = { version = "0.1", optional = true }
+
+[dev-dependencies]
+tokio-test  = "0.4"
+
+[[bin]]
+name = "rustmc"
+path = "src/bin/rustmc.rs"
+required-features = ["cli"]
+
+[dependencies.clap]
+version  = "4"
+features = ["derive"]
+optional = true
+
+[features]
+default   = ["sync", "async", "cli", "srv"]
+sync      = []
+async     = ["tokio", "dep:futures"]
+cli       = ["clap"]
+dns_cache = ["dashmap"]
+srv       = ["hickory-resolver"]
+tracing   = ["dep:tracing"]

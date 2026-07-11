@@ -1,6 +1,6 @@
 [package]
 name        = "rustmc"
-version     = "0.1.0"
+version     = "0.1.1"
 edition     = "2021"
 description = "Minecraft server status library (Java + Bedrock + Query + Legacy)"
 license     = "Apache-2.0"

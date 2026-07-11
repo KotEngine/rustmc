@@ -25,7 +25,7 @@ Minecraft server status library for Rust: Java Edition (SLP), Bedrock Edition (R
 
 ```toml
 [dependencies]
-rustmc = "0.1.0"
+rustmc = "0.1.1"
 ```
 
 ## Usage
